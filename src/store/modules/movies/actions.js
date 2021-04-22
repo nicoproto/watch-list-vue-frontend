@@ -7,7 +7,7 @@ export default {
       poster_url: payload.poster_url,
       rating: payload.rating,
     };
-    const response = await fetch("http://localhost:3000/api/v1/movies", {
+    const response = await fetch(process.env.VUE_APP_ROOT_API + "/movies", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ movie: movieData }),
@@ -34,7 +34,8 @@ export default {
       return;
     }
 
-    const response = await fetch("http://localhost:3000/api/v1/movies");
+    console.log(process.env.VUE_APP_ROOT_API + "/movies");
+    const response = await fetch(process.env.VUE_APP_ROOT_API + "/movies");
 
     const responseData = await response.json();
 
