@@ -4,5 +4,5 @@ export default {
   },
   registerBookmark(_, payload) {
     console.log(payload);
-  }
+  },
 };

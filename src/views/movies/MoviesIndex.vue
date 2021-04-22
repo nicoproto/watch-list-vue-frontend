@@ -37,7 +37,7 @@
 <script>
 import MovieItem from "../../components/movies/MovieItem.vue";
 import MovieFilter from "../../components/movies/MovieFilter.vue";
-import MovieSearch from '../../components/movies/MovieSearch.vue';
+import MovieSearch from "../../components/movies/MovieSearch.vue";
 import { mapActions, mapGetters } from "vuex";
 
 export default {
@@ -81,7 +81,9 @@ export default {
 
       if (this.textFilter != "") {
         return movies.filter((movie) => {
-          return movie.title.toLowerCase().includes(this.textFilter.toLowerCase());
+          return movie.title
+            .toLowerCase()
+            .includes(this.textFilter.toLowerCase());
         });
       }
       return movies;
@@ -115,7 +117,7 @@ export default {
     },
     filterLists(updatedTextFilter) {
       this.textFilter = updatedTextFilter;
-    }
+    },
   },
 };
 </script>

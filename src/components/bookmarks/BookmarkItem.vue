@@ -1,6 +1,6 @@
 <template>
   <li>
-    <img :src="movie.poster_url">
+    <img :src="movie.poster_url" />
     <div>
       <h3>{{ movie.title }}</h3>
       <p>Comment: {{ comment }}</p>
@@ -11,7 +11,7 @@
 <script>
 export default {
   props: ["id", "comment", "movie"],
-}
+};
 </script>
 
 <style scoped>

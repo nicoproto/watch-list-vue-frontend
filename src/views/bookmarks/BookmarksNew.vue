@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions, mapGetters } from "vuex";
 import BookmarkForm from "../../components/bookmarks/BookmarkForm.vue";
 
 export default {
@@ -32,7 +32,7 @@ export default {
     return {
       isLoading: false,
       error: null,
-    }
+    };
   },
   computed: {
     ...mapGetters({
@@ -71,17 +71,20 @@ export default {
       console.log(data);
       this.isLoading = true;
       try {
-        const responseData = await this.registerBookmark({...data, list_id: parseInt(this.list_id, 10)});
+        const responseData = await this.registerBookmark({
+          ...data,
+          list_id: parseInt(this.list_id, 10),
+        });
         this.$router.replace(`/lists/${responseData.list_id}`);
       } catch (error) {
         this.error = error.message || "Something went wrong!";
       }
       this.isLoading = false;
-    }
+    },
   },
   created() {
     this.setList();
     this.setMovies();
-  }
-}
+  },
+};
 </script>

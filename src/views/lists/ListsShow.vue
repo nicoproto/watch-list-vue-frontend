@@ -26,7 +26,7 @@
         <base-card>
           <header>
             <h3>Bookmarks</h3>
-            </header>
+          </header>
           <ul v-if="hasBookmarks">
             <bookmark-item
               v-for="bookmark in bookmarks"
@@ -50,7 +50,7 @@ import BookmarkItem from "../../components/bookmarks/BookmarkItem.vue";
 export default {
   props: ["id"],
   components: {
-    BookmarkItem
+    BookmarkItem,
   },
   data() {
     return {
@@ -70,11 +70,15 @@ export default {
       return this.$route.path + "/edit";
     },
     headerText() {
-      return this.list.name.charAt(0).toUpperCase() + this.list.name.slice(1) + " movie list"
+      return (
+        this.list.name.charAt(0).toUpperCase() +
+        this.list.name.slice(1) +
+        " movie list"
+      );
     },
     addBookmarkLink() {
       return this.$route.path + "/bookmarks/new";
-    }
+    },
   },
   methods: {
     ...mapActions({

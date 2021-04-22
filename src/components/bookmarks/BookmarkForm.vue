@@ -4,7 +4,9 @@
       <label for="movie">Movie</label>
       <select v-model="bookmark.movie_id" @blur="clearValidity('movie')">
         <option disabled value="">Please select one</option>
-        <option v-for="movie in movies" :key="movie.id" :value="movie.id"> {{ movie.title }}</option>
+        <option v-for="movie in movies" :key="movie.id" :value="movie.id">
+          {{ movie.title }}
+        </option>
       </select>
       <p v-if="!movieIsValid">Movie must not be empty.</p>
     </div>
@@ -27,7 +29,7 @@ export default {
   props: {
     movies: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     bookmarkValues: {
       type: Object,
@@ -70,9 +72,9 @@ export default {
         movie_id: null,
         comment: "",
       };
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -109,7 +111,8 @@ h3 {
   color: red;
 }
 
-.invalid input, .invalid select {
+.invalid input,
+.invalid select {
   border: 1px solid red;
 }
 </style>
