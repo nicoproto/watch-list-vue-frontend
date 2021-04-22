@@ -1,7 +1,7 @@
 export default {
   async loadBookmarks(context, payload) {
     const response = await fetch(
-      `http://localhost:3000/api/v1/lists/${payload.list_id}/bookmarks`
+      `${process.env.VUE_APP_ROOT_API}/lists/${payload.list_id}/bookmarks`
     );
 
     const responseData = await response.json();
@@ -32,7 +32,7 @@ export default {
     console.log("bookmarkData:", bookmarkData);
 
     const response = await fetch(
-      `http://localhost:3000/api/v1/lists/${payload.list_id}/bookmarks`,
+      `${process.env.VUE_APP_ROOT_API}/lists/${payload.list_id}/bookmarks`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

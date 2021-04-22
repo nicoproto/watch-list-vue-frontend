@@ -1,6 +1,6 @@
 export default {
   async loadLists(context) {
-    const response = await fetch("http://localhost:3000/api/v1/lists");
+    const response = await fetch(`${process.env.VUE_APP_ROOT_API}/lists`);
 
     const responseData = await response.json();
 
@@ -23,7 +23,7 @@ export default {
   },
   async loadList(context, payload) {
     const response = await fetch(
-      `http://localhost:3000/api/v1/lists/${payload.id}`
+      `${process.env.VUE_APP_ROOT_API}/lists/${payload.id}`
     );
 
     const responseData = await response.json();
@@ -37,7 +37,7 @@ export default {
   },
   async destroyList(context, payload) {
     const response = await fetch(
-      `http://localhost:3000/api/v1/lists/${payload.id}`,
+      `${process.env.VUE_APP_ROOT_API}/lists/${payload.id}`,
       {
         method: "DELETE",
       }
@@ -59,7 +59,7 @@ export default {
   async registerList(context, payload) {
     const listData = payload;
 
-    const response = await fetch("http://localhost:3000/api/v1/lists", {
+    const response = await fetch(`${process.env.VUE_APP_ROOT_API}/lists`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ list: listData }),
@@ -85,7 +85,7 @@ export default {
     const listData = payload;
 
     const response = await fetch(
-      `http://localhost:3000/api/v1/lists/${payload.id}`,
+      `${process.env.VUE_APP_ROOT_API}/lists/${payload.id}`,
       {
         method: "PATCH",
         headers: {

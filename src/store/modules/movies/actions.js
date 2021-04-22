@@ -64,7 +64,7 @@ export default {
   },
   async loadMovie(context, payload) {
     const response = await fetch(
-      `http://localhost:3000/api/v1/movies/${payload.id}`
+      `${process.env.VUE_APP_ROOT_API}/movies/${payload.id}`
     );
 
     const responseData = await response.json();
@@ -78,7 +78,7 @@ export default {
   },
   async destroyMovie(context, payload) {
     const response = await fetch(
-      `http://localhost:3000/api/v1/movies/${payload.id}`,
+      `${process.env.VUE_APP_ROOT_API}/movies/${payload.id}`,
       {
         method: "DELETE",
       }
@@ -105,7 +105,7 @@ export default {
       rating: payload.rating,
     };
     const response = await fetch(
-      `http://localhost:3000/api/v1/movies/${payload.id}`,
+      `${process.env.VUE_APP_ROOT_API}/movies/${payload.id}`,
       {
         method: "PATCH",
         headers: {
